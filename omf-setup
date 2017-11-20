@@ -1,0 +1,4 @@
+#!/usr/bin/env fish
+
+omf install cbjohnson
+omf theme cbjohnson

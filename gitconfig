@@ -1,0 +1,53 @@
+[user]
+  name = Greg Allen
+  email = greg@firstandthird.com
+[alias]
+  st=status
+  ;c=commit
+  ;co=checkout
+  ;ca=commit -a
+  a=add
+  au=!git add -u && git st
+  ;i=add -i
+  ;pl=pull
+  ;ps=push
+  d=diff --color
+  dc=diff --color --cached
+  dw=diff --color-words
+  dwc=diff --color-words --cached
+  lg=log --pretty=format:'%Cred%h%Creset - %s %Cgreen(%an - %cr)%Creset %C(yellow)%d%Creset' --abbrev-commit --date=relative
+  lf=log --pretty=format:'%Cred%h%Creset - %s %Cgreen(%an - %cr)%Creset %C(yellow)%d%Creset' --abbrev-commit --date=relative --name-only
+  lbare=log --oneline --no-merges --pretty=format:'%s %d'
+  lb=!git l --branches
+  cmp=!sh -c 'git log --left-right --name-only --oneline --no-merges $0...'
+  br=!sh -c 'git checkout --no-track -b $0 origin/prod'
+  su=submodule update --init --recursive
+  unmerged=branch -a --no-merged
+  merged=branch -a --merged
+  sup=branch --set-upstream master origin/master
+[push]
+  default = current
+[color]
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow
+  frag = magenta
+  old = red 
+  new = green
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[branch]
+  autosetupmerge = true
+[core]
+  pager = less -r
+[github]
+  user = jgallen23
+[merge]
+  tool = vimdiff

@@ -1,0 +1,45 @@
+source ~/.vim/bundles.vim
+
+syntax on
+filetype plugin indent on
+
+"source ~/.vim/config/powerline.vim
+source ~/.vim/config/base.vim
+source ~/.vim/config/windows.vim
+"source ~/.vim/config/airline.vim
+source ~/.vim/config/lightline.vim
+source ~/.vim/config/buftabline.vim
+"source ~/.vim/config/snippets.vim
+"source ~/.vim/config/ctrlp.vim
+source ~/.vim/config/syntastic.vim
+source ~/.vim/config/fugitive.vim
+source ~/.vim/config/markdown.vim
+source ~/.vim/config/tabs.vim
+source ~/.vim/config/wrap.vim
+source ~/.vim/config/nerdcommenter.vim
+"source ~/.vim/config/nerdtree.vim
+source ~/.vim/config/runcode.vim
+"source ~/.vim/config/bufsurf.vim
+"source ~/.vim/config/grep.vim
+source ~/.vim/config/php.vim
+source ~/.vim/config/search.vim
+source ~/.vim/config/applescript.vim
+"source ~/.vim/config/jade.vim
+source ~/.vim/config/qf.vim
+source ~/.vim/config/ultisnips.vim
+source ~/.vim/config/folds.vim
+source ~/.vim/config/browser-refresh.vim
+source ~/.vim/config/projects.vim
+source ~/.vim/config/smalls.vim
+source ~/.vim/config/tagbar.vim
+source ~/.vim/config/json.vim
+source ~/.vim/config/bufclear.vim
+source ~/.vim/config/incsearch.vim
+source ~/.vim/config/csv.vim
+source ~/.vim/config/netrw.vim
+source ~/.vim/config/ctags.vim
+source ~/.vim/config/gist.vim
+source ~/.vim/config/colors.vim
+source ~/.vim/config/dirdiff.vim
+source ~/.vim/config/vimux.vim
+source ~/.vim/config/fzf.vim

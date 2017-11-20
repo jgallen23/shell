@@ -1,0 +1,90 @@
+snippet cl "console.log"
+console.log(${1});
+endsnippet
+
+snippet deb "debugger"
+debugger;
+endsnippet
+
+snippet for
+for (var ${3:i} = 0, ${4:c} = ${1:list}.length; $3 < ${4:c}; $3${5:++}) {
+  var ${2:item} = $1[$3];
+}
+endsnippet
+
+snippet dox
+/**
+ * ${1:Description} 
+ *
+ * Examples:
+ *
+ *     ${2:Example} 
+ *
+ * @param {${3:string}} ${4:description}
+ * @return {${5:string}} ${6:description} 
+ * @api ${7:public}
+ */
+endsnippet
+
+snippet com
+/**
+ * ${1:Description}
+ */
+endsnippet
+
+snippet suite
+suite('${1}', () => {
+});
+endsnippet
+
+snippet desc
+describe('${1}', () => {
+});
+endsnippet
+
+snippet test
+test('${1}', () => {
+});
+endsnippet
+
+snippet it
+it('should ${1}', () => {
+  ${2}
+});
+endsnippet
+
+snippet ita
+it('should ${1}', (done) => {
+});
+endsnippet
+
+snippet testa
+test('${1}', (done) => {
+});
+endsnippet
+
+snippet testp
+test('${1}');
+endsnippet
+
+snippet grunt
+module.exports = function(grunt) {
+  grunt.initConfig({
+
+  });
+
+  grunt.registerTask('default', []);
+};
+endsnippet
+
+snippet exp
+expect(${1}).to.${2}
+endsnippet
+
+snippet req
+var ${1} = require('${1}');
+endsnippet
+
+snippet cls
+console.log(JSON.stringify(${1}, null, '  '));
+endsnippet
