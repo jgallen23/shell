@@ -30,7 +30,8 @@ RUN apk add --update \
   bc \
   mdocml-apropos \
   perl \
-  less
+  less \
+  perl-git
 
 COPY --from=ag /the_silver_searcher/ag /usr/bin/ag
 
@@ -46,8 +47,8 @@ RUN npm i -g nodemon
 ENV HOME /root
 COPY fish $HOME/.config/fish
 
-#fzf
-RUN git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && $HOME/.fzf/install --all
+#aws extras
+RUN git clone https://github.com/firstandthird/aws-extras $HOME/aws-extras
 
 #omf
 RUN curl -L https://get.oh-my.fish > $HOME/install && \
@@ -56,6 +57,9 @@ RUN curl -L https://get.oh-my.fish > $HOME/install && \
   rm $HOME/install
 COPY omf-setup $HOME/omf-setup
 RUN chmod +x $HOME/omf-setup && fish $HOME/omf-setup
+
+#fzf
+RUN git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && $HOME/.fzf/install --all
 
 #vim
 RUN mkdir -p $HOME/.vim/bundle && git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/vundle
@@ -66,7 +70,7 @@ COPY vim $HOME/.vim
 COPY vim/vimrc $HOME/.config/nvim/init.vim
 
 COPY bin $HOME/bin
-ENV PATH $PATH:$HOME/bin
+ENV PATH $PATH:$HOME/bin:$HOME/aws-extras
 
 RUN mkdir -p /work
 WORKDIR /work
