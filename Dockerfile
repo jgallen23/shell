@@ -1,6 +1,6 @@
 FROM ketouem/ag-alpine as ag
 
-FROM alpine:latest
+FROM alpine:3.6
 
 RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
 
@@ -20,6 +20,7 @@ RUN apk add --update \
   openssl ca-certificates \
   docker \
   nodejs \
+  nodejs-npm \
   fish \
   bash \
   sudo \
@@ -28,7 +29,8 @@ RUN apk add --update \
   openssh \
   bc \
   mdocml-apropos \
-  perl
+  perl \
+  less
 
 COPY --from=ag /the_silver_searcher/ag /usr/bin/ag
 
