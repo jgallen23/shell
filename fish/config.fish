@@ -22,5 +22,5 @@ end
 if test -d /ssh
   rm -fr $HOME/.ssh
   cp -r /ssh $HOME/.ssh
-  chown root:root $HOME/.ssh
+  sudo chown $USER:$USER $HOME/.ssh
 end
