@@ -1,7 +1,7 @@
 set showtabline=2
 
 let g:lightline = {
-    \ 'colorscheme': 'PaperColor_light',
+    \ 'colorscheme': 'solarized',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'fugitive', 'readonly', 'relativepath', 'modified' ] ]

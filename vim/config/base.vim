@@ -1,9 +1,8 @@
 "let base16colorspace=256
 "set t_Co=256
-"set background=light
 "let g:base16_shell_path="/home/ubuntu/dotfiles/vendor/base16-shell/scripts"
-let g:pencil_gutter_color = 1
-colorscheme pencil
+set background=dark
+colorscheme solarized
 
 set ignorecase
 set smartcase
