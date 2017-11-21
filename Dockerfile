@@ -44,7 +44,12 @@ RUN curl -sSL http://git.io/git-extras-setup | bash /dev/stdin
 #RUN npm update -g npm
 RUN npm i -g nodemon
 
-ENV HOME /root
+RUN addgroup -g 1000 dev && \
+  adduser -u 1000 -G dev -s /usr/bin/fish -h /home/dev -D dev
+
+ENV HOME /home/dev
+RUN mkdir -p $HOME
+
 COPY fish $HOME/.config/fish
 
 #aws extras
@@ -72,9 +77,6 @@ COPY vim/vimrc $HOME/.config/nvim/init.vim
 COPY bin $HOME/bin
 ENV PATH $PATH:$HOME/bin:$HOME/aws-extras
 
-RUN mkdir -p /work
-WORKDIR /work
-
 ENV TERM xterm-256color
 ENV LANG en_US.UTF-8C.UTF-8
 ENV LC_ALL en_US.utf-8
@@ -82,4 +84,8 @@ ENV LC_ALL en_US.utf-8
 COPY tmux.conf $HOME/.tmux.conf
 COPY gitconfig $HOME/.gitconfig
 
-ENTRYPOINT ["tmux"]
+RUN chown -R dev:dev $HOME
+USER dev
+WORKDIR $HOME
+
+ENTRYPOINT ["fish"]
