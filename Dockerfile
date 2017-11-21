@@ -40,8 +40,8 @@ RUN pip install awscli docker-compose
 RUN curl -sSL http://git.io/git-extras-setup | bash /dev/stdin
 
 #node stuff
-RUN npm update -g npm
-RUN npm i -g nodemon david npm-check
+#RUN npm update -g npm
+RUN npm i -g nodemon
 
 ENV HOME /root
 COPY fish $HOME/.config/fish
