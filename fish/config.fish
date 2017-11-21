@@ -7,7 +7,7 @@ set -q XDG_DATA_HOME
 source $OMF_PATH/init.fish
 set -x CLICOLOR 1
 set -x EDITOR nvim
-#set -x CDPATH $CDPATH . ~ $HOME/projects $HOME/clients
+set -x CDPATH $CDPATH . ~ /work
 #set -gx PATH /home/ubuntu/projects/aws-extras /home/ubuntu/bin $PATH
 set -gx FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""'
 
@@ -21,6 +21,6 @@ end
 
 if test -d /ssh
   rm -fr $HOME/.ssh
-  cp -r /ssh $HOME/.ssh
+  sudo cp -r /ssh $HOME/.ssh
   sudo chown $USER:$USER $HOME/.ssh
 end

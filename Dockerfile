@@ -47,7 +47,7 @@ RUN npm i -g nodemon
 RUN addgroup -g 1000 dev && \
   adduser -u 1000 -G dev -s /usr/bin/fish -h /home/dev -D dev && \
   passwd -d dev && \
-  echo "dev    ALL=(ALL) ALL" > /etc/sudoers
+  echo "dev    ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ENV HOME /home/dev
 RUN mkdir -p $HOME
