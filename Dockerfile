@@ -50,6 +50,7 @@ RUN addgroup -g 1000 dev && \
   echo "dev    ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ENV HOME /home/dev
+RUN mkdir -p /work
 RUN mkdir -p $HOME
 
 COPY fish $HOME/.config/fish
@@ -85,6 +86,7 @@ ENV LC_ALL en_US.utf-8
 
 COPY tmux.conf $HOME/.tmux.conf
 COPY gitconfig $HOME/.gitconfig
+
 
 RUN chown -R dev:dev $HOME
 USER dev
