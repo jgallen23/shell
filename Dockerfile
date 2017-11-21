@@ -2,6 +2,7 @@ FROM ketouem/ag-alpine as ag
 
 FROM alpine:3.6
 
+RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories
 RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
 
 RUN apk add --update tzdata && \
