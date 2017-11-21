@@ -1,0 +1,15 @@
+#!/usr/bin/env fish
+
+omf install cbjohnson
+omf theme cbjohnson
+
+if test -d /ssh
+  rm -fr $HOME/.ssh
+  sudo cp -r /ssh $HOME/.ssh
+  sudo chown $USER:$USER $HOME/.ssh
+  chmod 600 $HOME/.ssh/id_rsa*
+end
+
+sudo chown -R $USER:$USER /work/$PROFILE_NAME
+
+sh

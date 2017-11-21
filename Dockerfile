@@ -63,8 +63,6 @@ RUN curl -L https://get.oh-my.fish > $HOME/install && \
   chmod +x $HOME/install && \
   $HOME/install --noninteractive && \
   rm $HOME/install
-COPY omf-setup $HOME/omf-setup
-RUN chmod +x $HOME/omf-setup && fish $HOME/omf-setup
 
 #fzf
 RUN git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && $HOME/.fzf/install --all
@@ -86,10 +84,11 @@ ENV LC_ALL en_US.utf-8
 
 COPY tmux.conf $HOME/.tmux.conf
 COPY gitconfig $HOME/.gitconfig
-
+COPY init $HOME/init
+RUN chmod +x $HOME/init
 
 RUN chown -R dev:dev $HOME
 USER dev
 WORKDIR $HOME
 
-ENTRYPOINT ["fish"]
+CMD ["/home/dev/init"]

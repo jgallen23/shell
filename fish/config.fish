@@ -18,9 +18,3 @@ set -gx FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""'
 if test -f $HOME/.fish_env
   . $HOME/.fish_env
 end
-
-if test -d /ssh
-  rm -fr $HOME/.ssh
-  sudo cp -r /ssh $HOME/.ssh
-  sudo chown $USER:$USER $HOME/.ssh
-end
