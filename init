@@ -4,9 +4,10 @@ omf install cbjohnson
 omf theme cbjohnson
 
 if test -d /ssh
+  echo "updating ssh"
   rm -fr $HOME/.ssh
   sudo cp -r /ssh $HOME/.ssh
-  sudo chown $USER:$USER $HOME/.ssh
+  sudo chown -R $USER:$USER $HOME/.ssh
   chmod 600 $HOME/.ssh/id_rsa*
 end
 
