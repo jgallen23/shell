@@ -11,11 +11,14 @@ if test -d /ssh
   chmod 600 $HOME/.ssh/id_rsa*
 end
 
-sudo chown -R $USER:$USER /work/$PROFILE_NAME
+if test -d "/work/$PROFILE_NAME"
+  sudo chown -R $USER:$USER /work/$PROFILE_NAME
+end
 
 if test -n "$DOCKER_GROUP_ID"
   echo "changing docker group to $DOCKER_GROUP_ID"
-  groupmod -g $DOCKER_GROUP_ID docker
+  sudo groupmod -g $DOCKER_GROUP_ID docker
+  sudo adduser $USER docker
 end
 
 if test -n "$DOCKER_TOKEN"
@@ -23,12 +26,12 @@ if test -n "$DOCKER_TOKEN"
   set CONFIG_FILE $HOME/.docker/config.json
   echo "Using DOCKER_TOKEN"
   printf "\
-  {
-    \"auths\": {
-      \"https://index.docker.io/v1/\": {
-        \"auth\": \"$DOCKER_TOKEN\"
-      }
+{
+  \"auths\": {
+    \"https://index.docker.io/v1/\": {
+      \"auth\": \"$DOCKER_TOKEN\"
     }
-  }" | cat > $CONFIG_FILE
+  }
+}" | cat > $CONFIG_FILE
 end
 sh
