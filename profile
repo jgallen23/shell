@@ -16,6 +16,7 @@ if [[ "$?" == 1 ]]; then
     --env PROFILE_NAME=$PROFILE \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v $HOME/.ssh:/ssh \
+    -v /work/$PROFILE:/work/$PROFILE \
     --workdir /work/$PROFILE \
     --hostname $PROFILE \
     ${ENV_FILE:+ --env-file ${ENV_FILE}} \
