@@ -13,4 +13,7 @@ end
 
 sudo chown -R $USER:$USER /work/$PROFILE_NAME
 
+if test -n $DOCKER_GROUP_ID
+  groupmod -g $DOCKER_GROUP_ID docker
+end
 sh
