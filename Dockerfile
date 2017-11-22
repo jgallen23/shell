@@ -61,6 +61,9 @@ COPY fish $HOME/.config/fish
 #aws extras
 RUN git clone https://github.com/firstandthird/aws-extras $HOME/aws-extras
 
+#docker extras
+RUN curl -sSL https://raw.githubusercontent.com/jgallen23/docker-extras/master/install.sh | sudo bash
+
 #omf
 RUN curl -L https://get.oh-my.fish > $HOME/install && \
   chmod +x $HOME/install && \
@@ -68,7 +71,7 @@ RUN curl -L https://get.oh-my.fish > $HOME/install && \
   rm $HOME/install
 
 #fzf
-RUN git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && $HOME/.fzf/install --all
+RUN git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
 
 #vim
 RUN mkdir -p $HOME/.vim/bundle && git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/vundle
@@ -92,6 +95,7 @@ RUN chmod +x $HOME/init
 
 RUN chown -R dev:dev $HOME
 USER dev
+RUN $HOME/.fzf/install --all
 WORKDIR $HOME
 
 CMD ["/home/dev/init"]

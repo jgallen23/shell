@@ -13,7 +13,22 @@ end
 
 sudo chown -R $USER:$USER /work/$PROFILE_NAME
 
-if test -n $DOCKER_GROUP_ID
+if test -n "$DOCKER_GROUP_ID"
+  echo "changing docker group to $DOCKER_GROUP_ID"
   groupmod -g $DOCKER_GROUP_ID docker
+end
+
+if test -n "$DOCKER_TOKEN"
+  mkdir -p $HOME/.docker
+  set CONFIG_FILE $HOME/.docker/config.json
+  echo "Using DOCKER_TOKEN"
+  printf "\
+  {
+    \"auths\": {
+      \"https://index.docker.io/v1/\": {
+        \"auth\": \"$DOCKER_TOKEN\"
+      }
+    }
+  }" | cat > $CONFIG_FILE
 end
 sh
