@@ -12,6 +12,7 @@ if test -d /ssh
 end
 
 if test -d "/work/$PROFILE_NAME"
+  echo "setting owner for /work/$PROFILE_NAME"
   sudo chown -R $USER:$USER /work/$PROFILE_NAME
 end
 
