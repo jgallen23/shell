@@ -27,7 +27,7 @@ nnoremap <leader>hl :set hlsearch!<CR>
 set incsearch
 set cursorline
 set relativenumber
-set mouse=a
+"set mouse=a
 set list listchars=tab:>\ ,trail:·
 "center screen
 "set so=999
