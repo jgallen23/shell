@@ -1,8 +1,6 @@
-"let base16colorspace=256
 "set t_Co=256
-"let g:base16_shell_path="/home/ubuntu/dotfiles/vendor/base16-shell/scripts"
 set background=dark
-colorscheme solarized
+colorscheme base16-solarized-dark
 
 set ignorecase
 set smartcase
