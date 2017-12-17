@@ -11,8 +11,8 @@ if test -d /ssh
   chmod 600 $HOME/.ssh/id_rsa*
 end
 
-if test -d "/work/$PROFILE_NAME"
-  sudo chown -R $USER:$USER /work/$PROFILE_NAME
+if test -d "/var/work/$PROFILE_NAME"
+  sudo chown -R $USER:$USER /var/work/$PROFILE_NAME
 end
 
 if test -n "$DOCKER_GROUP_ID"

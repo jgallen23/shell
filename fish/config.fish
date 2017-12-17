@@ -7,7 +7,7 @@ set -q XDG_DATA_HOME
 source $OMF_PATH/init.fish
 set -x CLICOLOR 1
 set -x EDITOR nvim
-set -x CDPATH $CDPATH . ~ /work/$PROFILE_NAME
+set -x CDPATH $CDPATH . ~ /var/work/$PROFILE_NAME
 #set -gx PATH /home/ubuntu/projects/aws-extras /home/ubuntu/bin $PATH
 set -gx FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""'
 
