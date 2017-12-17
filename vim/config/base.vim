@@ -1,8 +1,5 @@
-"let base16colorspace=256
 "set t_Co=256
-"let g:base16_shell_path="/home/ubuntu/dotfiles/vendor/base16-shell/scripts"
-set background=dark
-colorscheme solarized
+colorscheme base16-solarized-dark
 
 set ignorecase
 set smartcase
@@ -29,7 +26,7 @@ nnoremap <leader>hl :set hlsearch!<CR>
 set incsearch
 set cursorline
 set relativenumber
-set mouse=a
+"set mouse=a
 set list listchars=tab:>\ ,trail:·
 "center screen
 "set so=999

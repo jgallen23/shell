@@ -46,22 +46,19 @@ RUN curl -sSL http://git.io/git-extras-setup | bash /dev/stdin
 #RUN npm update -g npm
 RUN npm i -g nodemon
 
+#docker extras
+RUN curl -sSL https://raw.githubusercontent.com/jgallen23/docker-extras/master/install.sh | sudo bash
+
 RUN addgroup -g 1000 dev && \
   adduser -u 1000 -G dev -s /usr/bin/fish -h /home/dev -D dev && \
   passwd -d dev && \
   echo "dev    ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ENV HOME /home/dev
-RUN mkdir -p /work
 RUN mkdir -p $HOME
+USER dev
 
-COPY fish $HOME/.config/fish
-
-#aws extras
 RUN git clone https://github.com/firstandthird/aws-extras $HOME/aws-extras
-
-#docker extras
-RUN curl -sSL https://raw.githubusercontent.com/jgallen23/docker-extras/master/install.sh | sudo bash
 
 #omf
 RUN curl -L https://get.oh-my.fish > $HOME/install && \
@@ -71,30 +68,33 @@ RUN curl -L https://get.oh-my.fish > $HOME/install && \
 
 #fzf
 RUN git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+RUN $HOME/.fzf/install --all
 
-#vim
-RUN mkdir -p $HOME/.vim/bundle && git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/vundle
-COPY vim/bundles.vim $HOME/.vim/bundles.vim
-RUN nvim -es -u $HOME/.vim/bundles.vim +PluginInstall +q
+RUN git clone https://github.com/jgallen23/shell $HOME/shell
 
-COPY vim $HOME/.vim
-COPY vim/vimrc $HOME/.config/nvim/init.vim
 
-COPY bin $HOME/bin
-ENV PATH $PATH:$HOME/bin:$HOME/aws-extras
+RUN rm -rf $HOME/.config/fish && \
+  ln -s $HOME/shell/fish $HOME/.config/fish && \
+  ln -s $HOME/shell/vim $HOME/.vim && \
+  mkdir -p $HOME/.config/nvim && \
+  ln -s $HOME/shell/vim/vimrc $HOME/.config/nvim/init.vim && \
+  ln -s $HOME/shell/tmux.conf $HOME/.tmux.conf && \
+  ln -s $HOME/shell/gitconfig $HOME/.gitconfig && \
+  ln -s $HOME/shell/init $HOME/init
+
+RUN mkdir -p $HOME/shell/vim/bundle && \
+  git clone https://github.com/VundleVim/Vundle.vim.git $HOME/shell/vim/bundle/vundle
+
+RUN nvim -es -u $HOME/shell/vim/bundles.vim +PluginInstall +q
+
+ENV PATH $PATH:$HOME/shell/bin:$HOME/aws-extras
 
 ENV TERM xterm-256color
 ENV LANG en_US.UTF-8C.UTF-8
 ENV LC_ALL en_US.utf-8
 
-COPY tmux.conf $HOME/.tmux.conf
-COPY gitconfig $HOME/.gitconfig
-COPY init $HOME/init
 RUN chmod +x $HOME/init
 
-RUN chown -R dev:dev $HOME
-USER dev
-RUN $HOME/.fzf/install --all
 WORKDIR $HOME
 
 CMD ["/home/dev/init"]

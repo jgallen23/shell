@@ -20,6 +20,7 @@ if [[ "$?" == 1 ]]; then
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v $HOME/.ssh:/ssh \
     -v /work/$PROFILE:/work/$PROFILE \
+    -v shell-history:/home/dev/.local/share/fish \
     --workdir /work/$PROFILE \
     --hostname $PROFILE \
     ${ENV_FILE:+ --env-file ${ENV_FILE}} \
