@@ -80,6 +80,7 @@ RUN rm -rf $HOME/.config/fish && \
   ln -s $HOME/shell/vim/vimrc $HOME/.config/nvim/init.vim && \
   ln -s $HOME/shell/tmux.conf $HOME/.tmux.conf && \
   ln -s $HOME/shell/gitconfig $HOME/.gitconfig && \
+  ln -s $HOME/shell/npmrc $HOME/.npmrc && \
   ln -s $HOME/shell/init $HOME/init
 
 RUN mkdir -p $HOME/shell/vim/bundle && \
