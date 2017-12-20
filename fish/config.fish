@@ -18,3 +18,7 @@ set -gx FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""'
 if test -f $HOME/.fish_env
   . $HOME/.fish_env
 end
+
+if test -f /var/work/$PROFILE_NAME/.env
+  . /var/work/$PROFILE_NAME/.env
+end
