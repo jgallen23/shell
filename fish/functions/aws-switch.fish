@@ -6,6 +6,7 @@ function aws-switch
   set -gx AWS_SECRET_ACCESS_KEY $$secretKey
   set -gx AWS_ACCESS_KEY_ID $$clientKey
   set -gx AWS_DEFAULT_REGION $$regionKey
+  set -gx AWS_SWITCH_PROFILE $profile
 end
 
 

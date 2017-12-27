@@ -33,7 +33,8 @@ RUN apk add --update \
   perl \
   less \
   perl-git \
-  shadow
+  shadow \
+  groff
 
 COPY --from=ag /the_silver_searcher/ag /usr/bin/ag
 
