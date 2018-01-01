@@ -34,7 +34,8 @@ RUN apk add --update \
   less \
   perl-git \
   shadow \
-  groff
+  groff \
+  diffutils
 
 COPY --from=ag /the_silver_searcher/ag /usr/bin/ag
 
