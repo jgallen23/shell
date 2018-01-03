@@ -1,7 +1,6 @@
 "set t_Co=256
-colorscheme base16-solarized-light
-set background=light
-"let base16colorspace=1
+let base16colorspace=256
+colorscheme base16-materia
 
 set ignorecase
 set smartcase
