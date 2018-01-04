@@ -17,7 +17,7 @@ RUN apk add --update \
   tmux \
   neovim \
   curl \
-  python py-pip \
+  python py-pip python-dev \
   openssl ca-certificates \
   docker \
   nodejs \
@@ -25,6 +25,7 @@ RUN apk add --update \
   fish \
   bash \
   sudo \
+  gcc \
   make \
   util-linux \
   openssh \
@@ -35,11 +36,13 @@ RUN apk add --update \
   perl-git \
   shadow \
   groff \
-  diffutils
+  diffutils \
+  linux-headers \
+  musl-dev
 
 COPY --from=ag /the_silver_searcher/ag /usr/bin/ag
 
-RUN pip install awscli docker-compose
+RUN pip install awscli docker-compose neovim
 
 #git extras
 RUN curl -sSL http://git.io/git-extras-setup | bash /dev/stdin
