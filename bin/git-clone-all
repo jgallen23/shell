@@ -1,0 +1,20 @@
+#!/bin/bash
+
+TOKEN=$1
+
+REPOS=$(curl \
+  --silent \
+  -H "Authorization: token $TOKEN" \
+  "https://api.github.com/user/repos?sort=pushed&per_page=100" \
+  | jq '.[] | .full_name')
+
+for repo in $REPOS; do
+  repo=${repo//\"}
+  name=$(echo $repo | cut -d'/' -f2)
+  if [[ -d "$name" ]]; then
+    echo "$repo exists, skipping"
+  else
+    echo "cloning $repo"
+    git clone git@github.com:$repo
+  fi
+done
