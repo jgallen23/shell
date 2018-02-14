@@ -38,7 +38,9 @@ RUN apk add --update \
   groff \
   diffutils \
   linux-headers \
-  musl-dev
+  musl-dev \
+  jq \
+  wrk
 
 COPY --from=ag /the_silver_searcher/ag /usr/bin/ag
 
