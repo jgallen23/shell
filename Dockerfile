@@ -12,7 +12,6 @@ RUN apk add --update tzdata && \
 
 RUN apk add --update \
   git \
-  htop \
   pcre-dev xz-dev \
   tmux \
   neovim \
