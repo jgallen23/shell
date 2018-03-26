@@ -44,6 +44,7 @@ Plugin 'benmills/vimux'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'stephpy/vim-yaml'
+Plugin 'digitalrounin/vim-yaml-folds'
 
 call vundle#end()
 filetype plugin indent on     " required!

@@ -44,3 +44,4 @@ source ~/.vim/config/dirdiff.vim
 source ~/.vim/config/vimux.vim
 source ~/.vim/config/fzf.vim
 source ~/.vim/config/tmux.vim
+source ~/.vim/config/term.vim
