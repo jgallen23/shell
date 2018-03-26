@@ -1,0 +1,7 @@
+#!/bin/bash
+
+DEPTH=$1
+shift
+SCRIPT=$@
+
+find . -type d -maxdepth $DEPTH -exec $SCRIPT {} \;

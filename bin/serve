@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run --rm --name serve -p 8000:80 -v $PWD:/opt/www/files/ mohamnag/nginx-file-browser
