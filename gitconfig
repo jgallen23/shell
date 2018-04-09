@@ -25,6 +25,9 @@
   unmerged=branch -a --no-merged
   merged=branch -a --merged
   sup=branch --set-upstream master origin/master
+  files = !git diff --name-only $(git merge-base HEAD \"$REVIEW_BASE\")
+  review = !nvim -p $(git files) +\"tabdo Gdiff $REVIEW_BASE\" +\"let g:gitgutter_diff_base = '$REVIEW_BASE'\"
+  stat = !git diff --stat $(git merge-base HEAD \"$REVIEW_BASE\")
 [push]
   default = current
 [color]

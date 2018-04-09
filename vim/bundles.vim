@@ -45,6 +45,7 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'stephpy/vim-yaml'
 Plugin 'digitalrounin/vim-yaml-folds'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 filetype plugin indent on     " required!
