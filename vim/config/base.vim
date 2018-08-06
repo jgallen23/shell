@@ -2,6 +2,7 @@
 let base16colorspace=256
 colorscheme base16-materia
 
+set shell=/usr/bin/fish
 set ignorecase
 set smartcase
 set hidden
@@ -54,9 +55,13 @@ noremap L g_
 au! BufRead,BufNewFile *.handlebars setfiletype html
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.njk set filetype=jinja
+au BufRead,BufNewFile *.vue set filetype=javascript
 
 au BufRead,BufNewFile Dockerfile* setfiletype dockerfile
 au BufRead,BufNewFile DockerfileProd setfiletype dockerfile
+
+au FileType css setlocal foldmethod=indent
+au BufRead * normal zR
 
 "change cwd
 command! CWD :cd %:p:h
@@ -95,9 +100,12 @@ nnoremap ; :
 
 autocmd FileType gitcommit setlocal spell
 
+nnoremap <leader>n :e %:h/
+
 iab <expr> dts strftime("%Y.%m.%d")
 
 command! Spell :setlocal spell!<BAR>:setlocal spell?
+command! Del :call delete(expand('%'))
 
-let g:polyglot_disabled = ['javascript', 'yaml']
+let g:polyglot_disabled = ['javascript', 'yaml', 'vue']
 let g:jsx_ext_required = 1

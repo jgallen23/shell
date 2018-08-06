@@ -1,4 +1,4 @@
-set showtabline=2
+set showtabline=1
 
 let g:lightline = {
     \ 'colorscheme': 'base16_solarized',
