@@ -2,7 +2,7 @@
 let base16colorspace=256
 colorscheme base16-materia
 
-set shell=/usr/bin/fish
+"set shell=/usr/bin/fish
 set ignorecase
 set smartcase
 set hidden
