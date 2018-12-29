@@ -1,9 +1,11 @@
 FROM ketouem/ag-alpine as ag
 
-FROM alpine:3.6
+FROM alpine:3.8
 
-RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories
-RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
+#RUN echo http://dl-cdn.alpinelinux.org/alpine/latest-stable/main > /etc/apk/repositories && \
+  #echo http://dl-cdn.alpinelinux.org/alpine/latest-stable/community >> /etc/apk/repositories && \
+  #echo http://dl-cdn.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories && \
+  #echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
 
 RUN apk add --update tzdata && \
   cp /usr/share/zoneinfo/US/Pacific-New /etc/localtime && \
@@ -11,6 +13,8 @@ RUN apk add --update tzdata && \
   apk del tzdata
 
 RUN apk add --update \
+  sudo \
+  bash \
   git \
   pcre-dev xz-dev \
   tmux \
@@ -22,8 +26,6 @@ RUN apk add --update \
   nodejs \
   nodejs-npm \
   fish \
-  bash \
-  sudo \
   gcc \
   make \
   util-linux \
@@ -37,9 +39,10 @@ RUN apk add --update \
   groff \
   diffutils \
   linux-headers \
-  musl-dev \
   jq \
-  wrk
+  wrk \
+  musl-dev \
+  htop
 
 COPY --from=ag /the_silver_searcher/ag /usr/bin/ag
 
@@ -55,9 +58,13 @@ RUN npm i -g nodemon
 #docker extras
 RUN curl -sSL https://raw.githubusercontent.com/jgallen23/docker-extras/master/install.sh | sudo bash
 
+RUN delgroup ping && \
+  groupmod -g 999 docker
+
 RUN addgroup -g 1000 dev && \
   adduser -u 1000 -G dev -s /usr/bin/fish -h /home/dev -D dev && \
   passwd -d dev && \
+  adduser dev docker && \
   echo "dev    ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ENV HOME /home/dev
