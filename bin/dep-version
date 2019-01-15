@@ -1,0 +1,12 @@
+#!/bin/bash
+
+PKG=$1
+DIR=$2
+
+cd $DIR
+if [[ -f "package.json" ]]; then
+  VER=$(cat package.json | jq '.dependencies["'$PKG'"]')
+  if [[ "$VER" != "null" ]]; then
+    printf "$DIR:\t\t$VER\n"
+  fi
+fi
