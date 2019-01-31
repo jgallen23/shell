@@ -1,6 +1,0 @@
-#!/usr/bin/fish
-
-omf install aws
-omf install cbjohnson
-omf theme cbjohnson
-

@@ -92,8 +92,7 @@ RUN rm -rf $HOME/.config/fish && \
   ln -s $HOME/shell/tmux.conf $HOME/.tmux.conf && \
   ln -s $HOME/shell/gitconfig $HOME/.gitconfig && \
   ln -s $HOME/shell/npmrc $HOME/.npmrc && \
-  ln -s $HOME/shell/init $HOME/init && \
-  . $HOME/shell/omf-setup
+  ln -s $HOME/shell/init $HOME/init
 
 #fzf
 RUN git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
