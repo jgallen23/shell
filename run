@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+docker pull gregallen/shell
+docker run \
+	--rm -it \
+	--name shell \
+	-v shell-dev:/var/work/dev \
+	-e PROFILE_NAME=dev \
+	-v /var/run/docker.sock:/var/run/docker.sock \
+	-v $HOME/.ssh:/var/work/sshkeys \
+	gregallen/shell
