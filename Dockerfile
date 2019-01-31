@@ -84,7 +84,6 @@ RUN curl -L https://get.oh-my.fish > $HOME/install && \
 
 RUN git clone https://github.com/jgallen23/shell $HOME/shell
 
-
 RUN rm -rf $HOME/.config/fish && \
   ln -s $HOME/shell/fish $HOME/.config/fish && \
   ln -s $HOME/shell/vim $HOME/.vim && \
@@ -93,7 +92,8 @@ RUN rm -rf $HOME/.config/fish && \
   ln -s $HOME/shell/tmux.conf $HOME/.tmux.conf && \
   ln -s $HOME/shell/gitconfig $HOME/.gitconfig && \
   ln -s $HOME/shell/npmrc $HOME/.npmrc && \
-  ln -s $HOME/shell/init $HOME/init
+  ln -s $HOME/shell/init $HOME/init && \
+  . $HOME/shell/omf-setup
 
 #fzf
 RUN git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
