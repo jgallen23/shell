@@ -9,9 +9,9 @@ if test -d "/var/work/$PROFILE_NAME"
   sudo chown -R $USER:$USER /var/work/$PROFILE_NAME
 end
 
-if test ! -d ~/.ssh -a -d /var/work/$PROFILE_NAME/sshkeys
+if test ! -d ~/.ssh -a -d /var/work/sshkeys
   echo "symlinking ssh folder"
-  ln -s /var/work/$PROFILE_NAME/sshkeys ~/.ssh
+  ln -s /var/work/sshkeys ~/.ssh
 end
 
 if test -n "$DOCKER_GROUP_ID"
