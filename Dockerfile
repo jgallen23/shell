@@ -16,6 +16,8 @@ RUN apk add --update \
   sudo \
   bash \
   git \
+  git-perl \
+  git-email \
   pcre-dev xz-dev \
   tmux \
   neovim \
@@ -42,6 +44,7 @@ RUN apk add --update \
   jq \
   wrk \
   musl-dev \
+  fzf \
   htop
 
 COPY --from=ag /the_silver_searcher/ag /usr/bin/ag
