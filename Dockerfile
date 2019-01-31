@@ -82,10 +82,6 @@ RUN curl -L https://get.oh-my.fish > $HOME/install && \
   $HOME/install --noninteractive && \
   rm $HOME/install
 
-#fzf
-RUN git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-RUN $HOME/.fzf/install --all
-
 RUN git clone https://github.com/jgallen23/shell $HOME/shell
 
 
@@ -98,6 +94,10 @@ RUN rm -rf $HOME/.config/fish && \
   ln -s $HOME/shell/gitconfig $HOME/.gitconfig && \
   ln -s $HOME/shell/npmrc $HOME/.npmrc && \
   ln -s $HOME/shell/init $HOME/init
+
+#fzf
+RUN git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+RUN $HOME/.fzf/install --all
 
 RUN mkdir -p $HOME/shell/vim/bundle && \
   git clone https://github.com/VundleVim/Vundle.vim.git $HOME/shell/vim/bundle/vundle
