@@ -33,4 +33,4 @@ if test -n "$DOCKER_TOKEN"
   }
 }" | cat > $CONFIG_FILE
 end
-fish
+tmux
