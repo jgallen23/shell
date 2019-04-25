@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
-omf install aws
-omf install cbjohnson
+#omf install aws
+#omf install cbjohnson
 omf theme cbjohnson
 
 if test -d "/home/dev/.local/share/fish"

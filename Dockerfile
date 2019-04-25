@@ -87,6 +87,11 @@ RUN curl -L https://get.oh-my.fish > $HOME/install && \
   $HOME/install --noninteractive && \
   rm $HOME/install
 
+RUN cd $HOME/.local/share/omf/themes \ 
+      && git clone https://github.com/oh-my-fish/theme-cbjohnson cbjohnson \
+      && cd ../pkg \
+      && git clone https://github.com/oh-my-fish/plugin-aws aws
+
 COPY vim $HOME/.vim
 COPY vim/vimrc $HOME/.config/nvim/init.vim
 COPY tmux.conf $HOME/.tmux.conf
