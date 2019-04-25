@@ -49,7 +49,8 @@ RUN apk add --update \
 
 COPY --from=ag /the_silver_searcher/ag /usr/bin/ag
 
-RUN pip install awscli docker-compose neovim awslogs
+RUN pip install --upgrade pip
+RUN pip install awscli neovim awslogs
 
 #git extras
 RUN curl -sSL http://git.io/git-extras-setup | bash /dev/stdin
