@@ -56,7 +56,7 @@ RUN curl -sSL http://git.io/git-extras-setup | bash /dev/stdin
 
 #node stuff
 #RUN npm update -g npm
-RUN npm i -g nodemon
+RUN npm i -g nodemon fx
 
 #docker extras
 RUN curl -sSL https://raw.githubusercontent.com/jgallen23/docker-extras/master/install.sh | sudo bash
