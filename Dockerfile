@@ -57,7 +57,7 @@ RUN curl -sSL http://git.io/git-extras-setup | bash /dev/stdin
 
 #node stuff
 #RUN npm update -g npm
-RUN npm i -g nodemon fx
+RUN npm i -g nodemon fx cwl
 
 #docker compose
 RUN curl -L --fail https://github.com/docker/compose/releases/download/1.24.0/run.sh -o /usr/local/bin/docker-compose \
