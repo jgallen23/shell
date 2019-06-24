@@ -1,0 +1,41 @@
+#!/bin/bash
+
+termux-setup-storage
+pkg update
+pkg install \
+  fish \
+  tmux \
+  neovim \
+  nodejs \
+  fzf \
+  jq \
+  python
+
+
+pip install awscli neovim awslogs
+npm i -g nodemon fx cwl
+
+curl -L https://get.oh-my.fish > $HOME/install && \
+  chmod +x $HOME/install && \
+  $HOME/install --noninteractive && \
+  rm $HOME/install
+
+ln -s vim $HOME/.vim
+mkdir -p $HOME/.config/nvim
+ln -s vim/vimrc $HOME/.config/nvim/init.vim
+ln -s tmux.conf $HOME/.tmux.conf
+ln -s gitconfig $HOME/.gitconfig
+ln -s npmrc $HOME/.npmrc
+ln -s fish $HOME/.config/fish
+
+mkdir -p $HOME/.vim/bundle
+git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/vundle
+
+nvim -es -u $HOME/.vim/bundles.vim +PluginInstall +q
+
+chsh -s fish
+
+omf install aws
+omf install cbjohnson
+omf install aws-asp
+omf theme cbjohnson
