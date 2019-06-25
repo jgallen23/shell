@@ -19,6 +19,7 @@ pkg install \
   clang \
   make \
   less \
+  ffmpeg \
   diffutils \
   curl
 
