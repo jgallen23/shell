@@ -5,11 +5,19 @@ pkg update
 pkg install \
   fish \
   tmux \
+  python \
+  python2 \
   neovim \
   nodejs \
   fzf \
   jq \
-  python
+  perl \
+  pcre-dev \
+  gcc \
+  make \
+  less \
+  diffutils \
+  curl
 
 
 pip install awscli neovim awslogs
@@ -20,13 +28,13 @@ curl -L https://get.oh-my.fish > $HOME/install && \
   $HOME/install --noninteractive && \
   rm $HOME/install
 
-ln -s vim $HOME/.vim
+ln -fs $PWD/vim $HOME/.vim
 mkdir -p $HOME/.config/nvim
-ln -s vim/vimrc $HOME/.config/nvim/init.vim
-ln -s tmux.conf $HOME/.tmux.conf
-ln -s gitconfig $HOME/.gitconfig
-ln -s npmrc $HOME/.npmrc
-ln -s fish $HOME/.config/fish
+ln -fs $PWD/vim/vimrc $HOME/.config/nvim/init.vim
+ln -fs $PWD/tmux.conf $HOME/.tmux.conf
+ln -fs $PWD/gitconfig $HOME/.gitconfig
+ln -fs $PWD/npmrc $HOME/.npmrc
+ln -fs $PWD/fish $HOME/.config/fish
 
 mkdir -p $HOME/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/vundle
@@ -35,7 +43,7 @@ nvim -es -u $HOME/.vim/bundles.vim +PluginInstall +q
 
 chsh -s fish
 
-omf install aws
-omf install cbjohnson
-omf install aws-asp
-omf theme cbjohnson
+#omf install aws
+#omf install cbjohnson
+#omf install aws-asp
+#omf theme cbjohnson
