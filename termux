@@ -7,13 +7,16 @@ pkg install \
   tmux \
   python \
   python2 \
+  python-dev \
   neovim \
   nodejs \
   fzf \
+  silversearcher-ag \
   jq \
   perl \
+  pcre \
   pcre-dev \
-  gcc \
+  clang \
   make \
   less \
   diffutils \
@@ -37,7 +40,9 @@ ln -fs $PWD/npmrc $HOME/.npmrc
 ln -fs $PWD/fish $HOME/.config/fish
 
 mkdir -p $HOME/.vim/bundle
-git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/vundle
+if [[ ! -d "$HOME/.vim/bundle/vundle" ]]; then
+  git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/vundle
+fi
 
 nvim -es -u $HOME/.vim/bundles.vim +PluginInstall +q
 
