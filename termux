@@ -15,12 +15,13 @@ pkg install \
   jq \
   perl \
   pcre \
-  pcre-dev \
   clang \
   make \
   less \
   ffmpeg \
   diffutils \
+  util-linux \
+  gawk \
   curl
 
 
@@ -38,6 +39,7 @@ ln -fs $PWD/vim/vimrc $HOME/.config/nvim/init.vim
 ln -fs $PWD/tmux.conf $HOME/.tmux.conf
 ln -fs $PWD/gitconfig $HOME/.gitconfig
 ln -fs $PWD/npmrc $HOME/.npmrc
+rm -rf $HOME/.config/fish
 ln -fs $PWD/fish $HOME/.config/fish
 
 mkdir -p $HOME/.vim/bundle
