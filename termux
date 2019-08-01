@@ -7,7 +7,6 @@ pkg install \
   tmux \
   python \
   python2 \
-  python-dev \
   neovim \
   nodejs \
   fzf \
