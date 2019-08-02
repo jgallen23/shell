@@ -25,7 +25,7 @@ pkg install \
 
 
 pip install awscli neovim awslogs
-npm i -g nodemon fx cwl
+npm i -g nodemon fx cwl jay-repl
 
 curl -L https://get.oh-my.fish > $HOME/install && \
   chmod +x $HOME/install && \
@@ -38,6 +38,7 @@ ln -fs $PWD/vim/vimrc $HOME/.config/nvim/init.vim
 ln -fs $PWD/tmux.conf $HOME/.tmux.conf
 ln -fs $PWD/gitconfig $HOME/.gitconfig
 ln -fs $PWD/npmrc $HOME/.npmrc
+rm -rf $HOME/.config/fish
 ln -fs $PWD/fish $HOME/.config/fish
 
 mkdir -p $HOME/.vim/bundle
