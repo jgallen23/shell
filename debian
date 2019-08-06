@@ -1,0 +1,71 @@
+#!/bin/bash
+
+sudo apt-get update
+
+sudo apt-get install \
+  fish \
+  tmux \
+  python \
+  python-pip \
+  neovim \
+  silversearcher-ag \
+  jq \
+  perl \
+  clang \
+  make \
+  less \
+  gawk \
+  curl
+
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+pip install awscli neovim awslogs
+npm i -g nodemon fx cwl jay-repl
+
+#docker compose
+curl -L --fail https://github.com/docker/compose/releases/download/1.24.0/run.sh -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
+
+#docker extras
+curl -sSL https://raw.githubusercontent.com/jgallen23/docker-extras/master/install.sh | sudo bash
+
+#git extras
+curl -sSL http://git.io/git-extras-setup | bash /dev/stdin
+
+curl -L https://get.oh-my.fish > $HOME/install && \
+  chmod +x $HOME/install && \
+  $HOME/install --noninteractive && \
+  rm $HOME/install
+
+ln -fs $PWD/vim $HOME/.vim
+mkdir -p $HOME/.config/nvim
+ln -fs $PWD/vim/vimrc $HOME/.config/nvim/init.vim
+ln -fs $PWD/tmux.conf $HOME/.tmux.conf
+ln -fs $PWD/gitconfig $HOME/.gitconfig
+ln -fs $PWD/npmrc $HOME/.npmrc
+rm -rf $HOME/.config/fish
+ln -fs $PWD/fish $HOME/.config/fish
+
+mkdir -p $HOME/.vim/bundle
+if [[ ! -d "$HOME/.vim/bundle/vundle" ]]; then
+  git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/vundle
+fi
+
+mkdir -p $HOME/work
+
+if [[ ! -d "$HOME/work/aws-extras" ]]; then
+  git clone https://github.com/firstandthird/aws-extras.git $HOME/work/aws-extras
+fi
+
+if [[ ! -d "$HOME/work/swarm-cli" ]]; then
+  git clone https://github.com/firstandthird/swarm-cli.git $HOME/work/swarm-cli
+fi
+
+nvim -es -u $HOME/.vim/bundles.vim +PluginInstall +q
+
+sudo chsh -s fish $USER
+
+#omf install aws
+#omf install cbjohnson
+#omf install aws-asp
+#omf theme cbjohnson
