@@ -46,8 +46,14 @@ if [[ ! -d "$HOME/.vim/bundle/vundle" ]]; then
   git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/vundle
 fi
 
-if [[ ! -d "$HOME/aws-extras" ]]; then
-  git clone https://github.com/firstandthird/aws-extras.git $HOME/aws-extras
+mkdir -p $HOME/work
+
+if [[ ! -d "$HOME/work/aws-extras" ]]; then
+  git clone https://github.com/firstandthird/aws-extras.git $HOME/work/aws-extras
+fi
+
+if [[ ! -d "$HOME/work/swarm-cli" ]]; then
+  git clone https://github.com/firstandthird/swarm-cli.git $HOME/work/swarm-cli
 fi
 
 nvim -es -u $HOME/.vim/bundles.vim +PluginInstall +q
