@@ -1,5 +1,11 @@
 #!/bin/bash
 
+
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
 sudo apt-get update
 
 sudo apt-get install \
@@ -15,7 +21,8 @@ sudo apt-get install \
   make \
   less \
   gawk \
-  curl
+  curl \
+  docker-ce docker-ce-cli containerd.io
 
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
