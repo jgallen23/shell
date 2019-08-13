@@ -16,16 +16,11 @@ set -gx FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""'
 #end
 
 if test -f $HOME/.fish_env
+  echo "Loading .fish_env"
   source $HOME/.fish_env
 end
 
-if test -f $WORKDIR/.env
-  source $WORKDIR/.env
-end
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /var/work/dev/shopify_upsell/node_modules/tabtab/.completions/serverless.fish ]; and . /var/work/dev/shopify_upsell/node_modules/tabtab/.completions/serverless.fish
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[ -f /var/work/dev/shopify_upsell/node_modules/tabtab/.completions/sls.fish ]; and . /var/work/dev/shopify_upsell/node_modules/tabtab/.completions/sls.fish
+#if test -f $WORKDIR/.env
+  #echo "Loading .env"
+  #source $WORKDIR/.env
+#end

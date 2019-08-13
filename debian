@@ -1,5 +1,14 @@
 #!/bin/bash
 
+function check() {
+	if [ $? -eq 0 ]; then
+		echo Step Complete
+	else
+		echo Step Failed
+		exit
+	fi
+}
+
 sudo apt-get update
 
 sudo apt-get install \
@@ -17,27 +26,39 @@ sudo apt-get install \
   gawk \
   curl
 
+check
+
 sudo chown -R $USER:$USER /usr/local
 
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+check
+
 sudo apt-get install -y nodejs
+check
 
 pip install awscli neovim awslogs
-npm i -g nodemon fx cwl jay-repl
+check
+
+sudo npm i -g nodemon fx cwl jay-repl
+check
 
 #docker compose
 curl -L --fail https://github.com/docker/compose/releases/download/1.24.0/run.sh -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
+check
 
 #docker extras
 curl -sSL https://raw.githubusercontent.com/jgallen23/docker-extras/master/install.sh | sudo bash
+check
 
 #git extras
 curl -sSL http://git.io/git-extras-setup | bash /dev/stdin
+check
 
 curl -L https://get.oh-my.fish > $HOME/install && \
   chmod +x $HOME/install && \
   $HOME/install --noninteractive && \
   rm $HOME/install
+check
 
 ln -fs $PWD/vim $HOME/.vim
 mkdir -p $HOME/.config/nvim
@@ -65,7 +86,7 @@ fi
 
 nvim -es -u $HOME/.vim/bundles.vim +PluginInstall +q
 
-#sudo chsh -s fish $USER
+sudo chsh -s fish $USER
 
 #omf install aws
 #omf install cbjohnson
