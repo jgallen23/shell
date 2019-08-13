@@ -1,12 +1,12 @@
 #!/bin/bash
 
 function check() {
-	if [ $? -eq 0 ]; then
-		echo Step Complete
-	else
-		echo Step Failed
-		exit
-	fi
+  if [ $? -eq 0 ]; then
+    echo Step Complete
+  else
+    echo Step Failed
+    exit
+  fi
 }
 
 sudo apt-get update
