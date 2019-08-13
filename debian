@@ -1,11 +1,5 @@
 #!/bin/bash
 
-
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-
 sudo apt-get update
 
 sudo apt-get install \
@@ -21,8 +15,9 @@ sudo apt-get install \
   make \
   less \
   gawk \
-  curl \
-  docker-ce docker-ce-cli containerd.io
+  curl
+
+sudo chown -R $USER:$USER /usr/local
 
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
@@ -70,7 +65,7 @@ fi
 
 nvim -es -u $HOME/.vim/bundles.vim +PluginInstall +q
 
-sudo chsh -s fish $USER
+#sudo chsh -s fish $USER
 
 #omf install aws
 #omf install cbjohnson
