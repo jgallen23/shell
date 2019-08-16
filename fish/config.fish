@@ -16,7 +16,6 @@ set -gx FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""'
 #end
 
 if test -f $HOME/.fish_env
-  echo "Loading .fish_env"
   source $HOME/.fish_env
 end
 
