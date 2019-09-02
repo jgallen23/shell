@@ -52,8 +52,7 @@ COPY --from=ag /the_silver_searcher/ag /usr/bin/ag
 RUN pip install --upgrade pip
 RUN pip install awscli neovim awslogs
 
-RUN wget --quiet https://releases.hashicorp.com/terraform/0.12.2/terraform_0.12.2_linux_amd64.zip \
-  && unzip terraform_0.12.2_linux_amd64.zip \
+RUN wget --quiet https://releases.hashicorp.com/terraform/0.12.2/terraform_0.12.2_linux_amd64.zip \ && unzip terraform_0.12.2_linux_amd64.zip \
   && mv terraform /usr/bin \
   && rm terraform_0.12.2_linux_amd64.zip
 
