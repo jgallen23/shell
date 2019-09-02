@@ -36,7 +36,7 @@ check
 sudo apt-get install -y nodejs
 check
 
-pip install awscli neovim awslogs
+pip install awscli neovim awslogs httpie
 check
 
 sudo npm i -g nodemon fx cwl jay-repl
