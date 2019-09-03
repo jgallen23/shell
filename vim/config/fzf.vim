@@ -1,6 +1,6 @@
 nnoremap <silent> <space> :Buffers<CR>
 nnoremap <silent> \ :Files<CR>
-nnoremap <silent> <leader>fw :FZF /var/work<CR>
+nnoremap <silent> <leader>fw :FZF $WORKDIR<CR>
 nnoremap <silent> <leader>fn :FZF ./node_modules<CR>
 nnoremap <silent> <leader>fu :FZF %:p:h/..<CR>
 nnoremap <silent> <leader>ff :FZF -q <cfile><CR>

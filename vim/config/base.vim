@@ -107,5 +107,5 @@ iab <expr> dts strftime("%Y.%m.%d")
 command! Spell :setlocal spell!<BAR>:setlocal spell?
 command! Del :call delete(expand('%'))
 
-let g:polyglot_disabled = ['javascript', 'yaml', 'vue']
+let g:polyglot_disabled = ['yaml', 'vue']
 let g:jsx_ext_required = 1
