@@ -24,6 +24,7 @@ sudo apt-get install \
   make \
   less \
   gawk \
+  htop \
   curl
 
 check
