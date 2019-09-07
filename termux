@@ -21,7 +21,8 @@ pkg install \
   diffutils \
   util-linux \
   gawk \
-  curl
+  curl \
+  wget
 
 
 pip install awscli neovim awslogs
