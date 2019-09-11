@@ -1,7 +1,15 @@
 #!/bin/bash
 
-DEPTH=$1
+DIR=$1
 shift
-SCRIPT=$@
+CMD=$@
 
-find . -type d -maxdepth $DEPTH -exec $SCRIPT {} \;
+echo
+for dir in $DIR/*/; do
+  cd $dir
+  echo "Running \"$CMD\" in $dir ..."
+  $CMD
+  echo ------------
+  echo
+  cd ..
+done
