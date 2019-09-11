@@ -1,0 +1,12 @@
+#!/bin/bash
+
+DIR=$(pwd)
+
+for dir in $PWD/*/; do
+  cd $dir
+  if [[ -n $(git status -s) ]]; then
+    echo $dir
+    git status -s
+  fi
+  cd ..
+done
