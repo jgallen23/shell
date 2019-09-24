@@ -11,5 +11,5 @@ for dir in $DIR/*/; do
   $CMD
   echo ------------
   echo
-  cd ..
+  cd -
 done
