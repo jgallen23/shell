@@ -40,7 +40,7 @@ check
 pip install awscli neovim awslogs httpie
 check
 
-sudo npm i -g nodemon fx cwl jay-repl
+sudo npm i -g nodemon fx cwl jay-repl eslint eslint-config-firstandthird eslint-plugin-import
 check
 
 TF_VERSION=0.12.7
@@ -50,7 +50,7 @@ TF_VERSION=0.12.7
 ##check
 
 #docker compose
-curl -L --fail https://github.com/docker/compose/releases/download/1.24.0/run.sh -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 check
 
 #docker extras
@@ -75,6 +75,7 @@ ln -fs $PWD/gitconfig $HOME/.gitconfig
 ln -fs $PWD/npmrc $HOME/.npmrc
 rm -rf $HOME/.config/fish
 ln -fs $PWD/fish $HOME/.config/fish
+#ln -fs $PWD/eslintrc $HOME/.eslintrc
 
 mkdir -p $HOME/.vim/bundle
 if [[ ! -d "$HOME/.vim/bundle/vundle" ]]; then
