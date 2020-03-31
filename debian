@@ -61,6 +61,14 @@ check
 curl -sSL http://git.io/git-extras-setup | bash /dev/stdin
 check
 
+#linuxbrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+check
+
+#sam
+#brew tap aws/tap
+#brew install aws-sam-cli
+
 curl -L https://get.oh-my.fish > $HOME/install && \
   chmod +x $HOME/install && \
   $HOME/install --noninteractive && \
