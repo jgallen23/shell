@@ -5,6 +5,9 @@ filetype off                   " required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
+let g:polyglot_disabled = ['yaml', 'vue']
+let g:jsx_ext_required = 1
+
 Plugin 'gmarik/vundle'
 Plugin 'itchyny/lightline.vim'
 
