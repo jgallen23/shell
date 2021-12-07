@@ -13,6 +13,8 @@ Plugin 'itchyny/lightline.vim'
 
 "colorschemes
 Plugin 'chriskempson/base16-vim'
+Plugin 'junegunn/seoul256.vim'
+Plugin 'shinchu/lightline-seoul256.vim'
 
 Plugin 'Glench/Vim-Jinja2-Syntax'
 "Plugin 'SirVer/ultisnips'

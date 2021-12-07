@@ -1,6 +1,10 @@
-"set t_Co=256
-let base16colorspace=256
-colorscheme base16-materia
+set t_Co=256
+"let base16colorspace=256
+"colorscheme base16-materia
+colo seoul256
+
+let g:seoul256_background = 256
+set background=light
 
 "set shell=/usr/bin/fish
 set ignorecase
