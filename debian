@@ -14,8 +14,8 @@ sudo apt-get update
 sudo apt-get install \
   fish \
   tmux \
-  python \
-  python-pip \
+  python3 \
+  python3-pip \
   neovim \
   silversearcher-ag \
   jq \
@@ -102,7 +102,8 @@ fi
 
 nvim -es -u $HOME/.vim/bundles.vim +PluginInstall +q
 
-sudo chsh -s fish $USER
+#sudo chsh -s fish $USER
+sudo chsh -s /usr/bin/fish $USER
 
 #omf install aws
 #omf install cbjohnson
