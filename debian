@@ -40,7 +40,10 @@ check
 pip install awscli neovim awslogs httpie
 check
 
-sudo npm i -g nodemon fx cwl jay-repl eslint eslint-config-firstandthird eslint-plugin-import
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+
+npm i -g nodemon fx cwl jay-repl eslint eslint-config-firstandthird eslint-plugin-import
 check
 
 TF_VERSION=0.12.7
