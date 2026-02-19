@@ -24,11 +24,15 @@ t() {
 autoload -Uz vcs_info
 precmd() { vcs_info }
 
-zstyle ':vcs_info:git:*' formats ' (%b)'
+zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' check-for-changes true
+
+# Define dirty markers
 zstyle ':vcs_info:git:*' unstagedstr '*'
 zstyle ':vcs_info:git:*' stagedstr '+'
-zstyle ':vcs_info:*' enable git
+
+# IMPORTANT: include %u and %c
+zstyle ':vcs_info:git:*' formats ' (%b%c%u)'
 
 setopt PROMPT_SUBST
 

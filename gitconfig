@@ -3,12 +3,13 @@
   email = greg@firstandthird.com
 [alias]
   st=status
-  ;c=commit
-  ;co=checkout
-  ;ca=commit -a
+  c=commit
+  co=checkout
+  ca=commit -a
   a=add
   au=!git add -u && git st
-  ;i=add -i
+  i=add -i
+  ap=add -p
   ;pl=pull
   ;ps=push
   d=diff --color
