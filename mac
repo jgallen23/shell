@@ -1,0 +1,16 @@
+#!/bin/bash
+
+brew install tmux
+brew install git-extras
+brew install python
+brew install macvim
+
+ln -fs $PWD/vim $HOME/.vim
+ln -fs $PWD/tmux.conf $HOME/.tmux.conf
+ln -fs $PWD/gitconfig $HOME/.gitconfig
+ln -fs $PWD/npmrc $HOME/.npmrc
+
+mkdir -p $HOME/.vim/bundle
+if [[ ! -d "$HOME/.vim/bundle/vundle" ]]; then
+  git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/vundle
+fi
