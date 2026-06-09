@@ -1,0 +1,12 @@
+#!/bin/bash
+
+ln -fs $PWD/vim $HOME/.vim
+ln -fs $PWD/tmux.conf $HOME/.tmux.conf
+ln -fs $PWD/gitconfig $HOME/.gitconfig
+ln -fs $PWD/npmrc $HOME/.npmrc
+ln -fs $PWD/zshrc $HOME/.zshrc
+
+mkdir -p $HOME/.vim/bundle
+if [[ ! -d "$HOME/.vim/bundle/vundle" ]]; then
+  git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/vundle
+fi
